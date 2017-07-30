@@ -1,0 +1,8 @@
+0. The game will create a board for any size between 3x3 and 9x9.
+1. The game's board is represented as a 2D array/multidimensional array.
+2. The function called to greet the player at the start is the 'greet' function.
+3. The functions I need to implement are:
+    a. init(): used to initialize a board thats d x d, where the user inputs d.
+    b. draw(): used to display the board to the user.
+    c. move(): used to move 2 legal tiles in the grid.
+    d. won(): used to check if the user has put the board in order and won.

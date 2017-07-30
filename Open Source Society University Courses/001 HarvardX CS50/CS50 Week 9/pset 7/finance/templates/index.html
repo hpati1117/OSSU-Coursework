@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    
+    <table style="width:100%">
+        <tr>
+            <th>Company Name</th>
+            <th>Stock Symbol</th>
+            <th>Shares Owned</th>
+            <th>Current Price</th>
+            <th>Current Total</th>
+        </tr>
+        {% for eachCompany in Profile %}
+            <tr>
+            {% for eachStat in Profile[eachCompany] %}
+                <td>
+                    {{eachStat}}
+                </td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        
+    </table>
+    
+    <p><br><b>Current Balance: </b>{{Balance}}</p>
+    <p><b>Current Grand Total: </b>{{GrandTotal}}</p>
+    
+{% endblock %}

@@ -1,0 +1,48 @@
+1.  <stdint.h> is a header file from the C library that contains functions related to ints, 
+    really used for creating unsigned ints or differing length ints.
+    
+2.  The point of using 'uint8_t, uint32_t, int32_t, and uint16_t' are:
+    uint8/16/32_t is used to create unsigned integers of 8-32 bits (1-4 bytes). Unsigned ints
+    can hold a large positive value.
+    int8/16/32_t is used for the same as above but with regular signed ints, meaning it can also
+    hold negative numbers.
+    
+3.  'BYTE' SIZE: 1 byte/8 bits unsigned
+    'DWORD' SIZE: 4 bytes/32 bits unsigned
+    'LONG' SIZE: 4 bytes/32 bits signed
+    'WORD' SIZE: 2 bytes/16 bits unsigned
+
+4.  The first 2 bytes in a BMP file are the type and size of the file.
+
+5.  The difference between 'bfsize' and bisize' is that 'bisize' is a signed integer that can be 
+    positive or negative, whereas 'bfsize' can only be a positive unsigned integer. Also, 
+    'bisize' is the size required by the structure and 'bfsize' is the bmp file in bytes.
+    
+6.  If 'biheight' is negative, it means that the bitmap is a top-down DIB with the origin in the
+    top-left corner as opposed to bottom-right.
+    
+7.  The field that shows the bmp's color depth is 'bibitcount', which controls the bits per pixel.
+
+8.  'fopen' might return 'NULL' in lines 24-32 of copy.c when the file name given doesn't exist or
+    the progrm doesn't have the rights to access the file.
+    
+9.  'fread' has 1 as its 3rd argument every time because it represents the number of elements
+    being passed through it, which is always 1.
+    
+10. In line 65 of copy.c, the value of padding from...
+    (int padding =  (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
+    ...with 'bi.biWidth' as 3 is the same as...
+    padding = 4 - (3 * 3 % 4) % 4
+    padding = 4 - (9 % 4) % 4
+    padding = 4 - 1 % 4
+    padding = 4 - 1
+    padding = 3
+    
+11. The function 'fseek' lets you offset things in a file by X spaces. It's used using the 
+    arguments (FILE, long int OFFSET, SEEK_SET/CUR/END). The first argument is the file you want
+    to work with, the second is the offset as an integer, and the third is where you want to add
+    the often (the start of the file [SEEK_SET], the current place in the file [SEEK_CUR], or the
+    end of the file [SEEK_END]).
+
+12. 'SEEK_CUR' is the 3rd argument passed into 'fseek' that tells the function where to add an offset,
+    in this case, where the pointer currently is.

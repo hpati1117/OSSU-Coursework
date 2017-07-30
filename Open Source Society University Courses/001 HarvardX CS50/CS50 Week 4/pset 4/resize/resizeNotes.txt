@@ -1,0 +1,33 @@
+/*
+                ~NOTES, CAN BE IGNORED~
+                before, I had the second arg as:
+                bf.bfOffBits + ((oldWidth * 3) * i) + newPadding
+                
+                The goal was for the code to
+                take the cursor to the beginning of 
+                the line, but it wasn't doing it correctly.
+                
+                bf.bfOffBits would be the size of the headers,
+                which it would skip correctly. Next, it did
+                oldWidth * 3, which was the size of the of the
+                pixels in the line without the padding. Afterwards,
+                I multiplied by 'i' to be on the 'i'th line and
+                would lastly add the padding. 
+                
+                My first part of the error though, 
+                was that there's padding in each line,
+                thus it can't just be added once. You're also looking
+                into the INFILE, not the OUTFILE, so you shouldn't use
+                the newPadding for this since it'd be off. Use the 
+                oldPadding for the formula and, remember, there's 
+                padding in each line, so you'd want it within the
+                'line' formula before multiplying by 'i'. 
+                
+                This would make the new formula:
+                bf.bfOffbits + (oldWidth * 3 + oldPadding) + newPadding
+                
+                This still wasn't correct, it still had 1 more thing
+                wrong with it. Remember what I said about newPadding?
+                How it's used in the new OUTFILE, but shouldn't be in the
+                INFILE? Well, I think you know what should change next!
+            */

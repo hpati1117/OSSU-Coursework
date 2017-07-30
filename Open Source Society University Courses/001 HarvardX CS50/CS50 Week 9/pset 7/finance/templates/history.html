@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    
+    <table style="width:100%">
+        <tr>
+            <th>Symbol</th>
+            <th>Quantity Recieved</th>
+            <th>Amount Earned</th>
+            <th>Date and Time of Purchase</th>
+        </tr>
+        {% for eachTuple in historyList %}
+            <tr>
+            {% for eachElement in eachTuple %}
+                <td>
+                    {{eachElement}}
+                </td>
+            {% endfor %}
+            </tr>
+        {% endfor %}
+        
+    </table>
+    
+{% endblock %}

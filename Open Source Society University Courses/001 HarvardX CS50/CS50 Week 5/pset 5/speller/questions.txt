@@ -1,0 +1,41 @@
+0.  Pneumonoultramicroscopicsilicovolcanoconiosis is a lung disease caused by breathing in
+    very fine ash and sand dust.
+    
+1.  'getrusage' is a function that gets the usage measures for whatever you call it on.
+
+2.  'getrusage's struct uses 16 variable members.
+
+3.  I believe we call before and after to calculate in order to have multiple instances of it
+    and be able to work with a difference instance of it each time.
+    
+4.  The way that speller.c checks if a word is spelt correctly is:
+    - itterate through each word in the entered text
+    
+    -+ check if the character is alphabetical and, if it is...
+    -- add the character to the variable 'word' and increase 'index'
+        by one so the next character will go after this character
+        
+    --+ check if the current index indicates the length of the word
+        is larger than 45, and if it is...
+    --- consume the remainder of the string and prepare for a new word
+    
+    -+ else if the character is a digit, consume the rest of the character
+       and reset the index
+       
+    -+ else if the index is greter than 0, it means we found a whole word, so...
+    -- add an end character '\0' to the end of the 'word'
+    -- update the 'words' counter
+    -- check if the world is misspelt by calling the 'misspelled' function 
+       passing in the word.
+    -- calculate the time it took for the function to run
+    
+    --+ check if the word was misspelled and, if it was...
+    --- print out the word
+    
+    -- reset the index to 0
+    
+5.  We use fgetc instead of fscanf because it gets an unsigned character one at a time
+    vs having to seperate the array of characters and trying to access each element one
+    at a time.
+
+6.  We declare parameters in check, load, and const in order to pass args to them.
